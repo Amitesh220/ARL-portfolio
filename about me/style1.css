@@ -108,7 +108,7 @@ body {
 /* Personal Info */
 .personalInfo {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     grid-gap: 10px 20px;
     margin-top: 14px;
     padding-bottom: 10px;
@@ -116,8 +116,9 @@ body {
 }
 
 .personalInfo div {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
 }
 
 .personalInfo div span {
@@ -148,7 +149,7 @@ body {
 /* Skills Section */
 .skillsection {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-gap: 10px 80px;
 }
 
@@ -203,7 +204,7 @@ body {
     }
 
     .skillsection {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
 
     .imagesection {
@@ -279,3 +280,4 @@ body {
         top: -28px;
     }
 }
+
