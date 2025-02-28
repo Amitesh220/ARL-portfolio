@@ -15,18 +15,15 @@ body {
 
 .about_container {
     width: 100%;
-    max-width: 1400px;
     padding: 50px 8%;
 }
 
-/* Main Layout */
 .about_contents {
     display: grid;
     grid-template-columns: 2fr 5fr;
     grid-gap: 70px;
-    grid-template-areas: 
-        'imagesect infosect'
-        'skillsect skillsect';
+    grid-template-areas: 'imagesect infosect'
+                         'skillsect skillsect';
 }
 
 /* Image Section */
@@ -35,7 +32,6 @@ body {
     position: relative;
     min-width: 300px;
     height: 380px;
-    margin: 0 auto;
 }
 
 .imagesection img {
@@ -129,17 +125,33 @@ body {
     letter-spacing: 1px;
 }
 
+/* Button */
+.infosection button {
+    min-width: 150px;
+    padding: 8px 18px;
+    border: 1px solid #787cb5;
+    border-radius: 25px;
+    font-size: 18px;
+    background-color: #2b2a2f;
+    color: #aaabb0;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.4s;
+    margin-top: 20px;
+}
+
+.infosection button:hover {
+    color: #787cb5;
+    border-color: #aaabb0;
+}
+
 /* Skills Section */
 .skillsection {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 30px 80px;
-    grid-template-areas: 
-        'skill1 skill2'
-        'skill3 skill4';
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px 80px;
 }
 
-/* Skill Titles */
 .skillsection .subject {
     font-size: 17px;
     font-weight: thin;
@@ -158,7 +170,6 @@ body {
     border-top: 1px solid #000;
     border-bottom: 1px solid #444;
     border-radius: 15px;
-    position: relative;
 }
 
 .progress_line {
@@ -174,34 +185,29 @@ body {
 .progress_line::after {
     position: absolute;
     content: attr(value);
-    top: -25px;
-    left: 100%;
-    transform: translateX(10px);
+    top: -35px;
+    right: 0px;
+    transform: translateX(-50%);
     color: #aaabb0;
-    font-size: 16px;
-    white-space: nowrap;
+    font-size: 17px;
 }
 
 /* Responsive Design */
 @media (max-width: 1024px) {
     .about_contents {
         grid-template-columns: 1fr;
-        grid-template-areas: 
-            'imagesect'
-            'infosect'
-            'skillsect';
+        grid-template-areas: 'imagesect'
+                             'infosect'
+                             'skillsect';
         grid-gap: 40px;
-        text-align: center;
-    }
-
-    .imagesection {
-        min-width: 250px;
-        height: 350px;
-        margin: 0 auto;
     }
 
     .skillsection {
         grid-template-columns: 1fr;
+    }
+
+    .imagesection {
+        text-align: center;
     }
 }
 
@@ -211,15 +217,24 @@ body {
     }
 
     .infosection h1 {
-        font-size: 28px;
+        font-size: 26px;
+    }
+
+    .infosection h2 {
+        font-size: 18px;
     }
 
     .infosection p {
         font-size: 16px;
     }
 
+    .personalInfo {
+        grid-template-columns: 1fr;
+    }
+
     .skillsection {
         grid-template-columns: 1fr;
+        grid-gap: 20px;
     }
 }
 
@@ -233,20 +248,34 @@ body {
     }
 
     .imagesection {
-        min-width: 220px;
-        height: 300px;
-        margin: 0 auto;
+        min-width: 250px;
+        height: 320px;
     }
 
     .infosection h1 {
-        font-size: 24px;
+        font-size: 22px;
+    }
+
+    .infosection h2 {
+        font-size: 16px;
     }
 
     .infosection p {
         font-size: 14px;
     }
 
-    .skillsection {
-        grid-template-columns: 1fr;
+    .infosection button {
+        font-size: 16px;
+        padding: 6px 14px;
+    }
+
+    .progress_bar {
+        height: 12px;
+        padding: 3px 5px;
+    }
+
+    .progress_line::after {
+        font-size: 14px;
+        top: -28px;
     }
 }
