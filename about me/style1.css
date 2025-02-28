@@ -1,3 +1,4 @@
+/* General Reset */
 * {
     margin: 0;
     padding: 0;
@@ -147,9 +148,9 @@ body {
 
 /* Skills Section */
 .skillsection {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 10px 80px;
+    display: flex;
+    flex-direction: column; /* Ensures skills are stacked */
+    gap: 20px; /* Adds spacing */
 }
 
 .skillsection .subject {
@@ -170,6 +171,7 @@ body {
     border-top: 1px solid #000;
     border-bottom: 1px solid #444;
     border-radius: 15px;
+    margin-bottom: 25px; /* Increased spacing to prevent overlap */
 }
 
 .progress_line {
@@ -185,11 +187,10 @@ body {
 .progress_line::after {
     position: absolute;
     content: attr(value);
-    top: -35px;
-    right: 0px;
-    transform: translateX(-50%);
+    top: -25px; /* Adjusted positioning */
+    right: 5px;
     color: #aaabb0;
-    font-size: 17px;
+    font-size: 16px;
 }
 
 /* Responsive Design */
@@ -205,10 +206,6 @@ body {
     .skillsection {
         grid-template-columns: 1fr;
     }
-
-    .imagesection {
-        text-align: center;
-    }
 }
 
 @media (max-width: 768px) {
@@ -220,21 +217,14 @@ body {
         font-size: 26px;
     }
 
-    .infosection h2 {
-        font-size: 18px;
+    .progress_bar {
+        height: 14px;
+        padding: 3px 5px;
     }
 
-    .infosection p {
-        font-size: 16px;
-    }
-
-    .personalInfo {
-        grid-template-columns: 1fr;
-    }
-
-    .skillsection {
-        grid-template-columns: 1fr;
-        grid-gap: 20px;
+    .progress_line::after {
+        font-size: 14px;
+        top: -20px;
     }
 }
 
@@ -243,39 +233,16 @@ body {
         padding: 20px 5%;
     }
 
-    .about_contents {
-        grid-gap: 30px;
-    }
-
-    .imagesection {
-        min-width: 250px;
-        height: 320px;
-    }
-
     .infosection h1 {
         font-size: 22px;
     }
 
-    .infosection h2 {
-        font-size: 16px;
-    }
-
-    .infosection p {
-        font-size: 14px;
-    }
-
-    .infosection button {
-        font-size: 16px;
-        padding: 6px 14px;
-    }
-
     .progress_bar {
         height: 12px;
-        padding: 3px 5px;
     }
 
     .progress_line::after {
-        font-size: 14px;
-        top: -28px;
+        font-size: 13px;
+        top: -18px;
     }
 }
