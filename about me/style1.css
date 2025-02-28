@@ -1,4 +1,3 @@
-/* General Reset */
 * {
     margin: 0;
     padding: 0;
@@ -148,9 +147,11 @@ body {
 
 /* Skills Section */
 .skillsection {
-    display: flex;
-    flex-direction: column; /* Ensures skills are stacked */
-    gap: 20px; /* Adds spacing */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 30px 80px;
+    grid-template-areas: 'skill1 skill2'
+                         'skill3 skill4';
 }
 
 .skillsection .subject {
@@ -171,7 +172,6 @@ body {
     border-top: 1px solid #000;
     border-bottom: 1px solid #444;
     border-radius: 15px;
-    margin-bottom: 25px; /* Increased spacing to prevent overlap */
 }
 
 .progress_line {
@@ -187,10 +187,11 @@ body {
 .progress_line::after {
     position: absolute;
     content: attr(value);
-    top: -25px; /* Adjusted positioning */
-    right: 5px;
+    top: -35px;
+    right: 0px;
+    transform: translateX(-50%);
     color: #aaabb0;
-    font-size: 16px;
+    font-size: 17px;
 }
 
 /* Responsive Design */
@@ -206,6 +207,10 @@ body {
     .skillsection {
         grid-template-columns: 1fr;
     }
+
+    .imagesection {
+        text-align: center;
+    }
 }
 
 @media (max-width: 768px) {
@@ -213,18 +218,9 @@ body {
         padding: 30px 5%;
     }
 
-    .infosection h1 {
-        font-size: 26px;
-    }
-
-    .progress_bar {
-        height: 14px;
-        padding: 3px 5px;
-    }
-
-    .progress_line::after {
-        font-size: 14px;
-        top: -20px;
+    .skillsection {
+        grid-template-columns: 1fr;
+        grid-gap: 20px;
     }
 }
 
@@ -233,16 +229,11 @@ body {
         padding: 20px 5%;
     }
 
-    .infosection h1 {
-        font-size: 22px;
+    .about_contents {
+        grid-gap: 30px;
     }
 
-    .progress_bar {
-        height: 12px;
-    }
-
-    .progress_line::after {
-        font-size: 13px;
-        top: -18px;
+    .skillsection {
+        grid-template-columns: 1fr;
     }
 }
