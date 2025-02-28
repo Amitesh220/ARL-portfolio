@@ -113,18 +113,23 @@ body {
     margin-top: 14px;
     padding-bottom: 10px;
     border-bottom: 1px solid #555;
+    word-wrap: break-word; /* Ensures long words wrap properly */
 }
 
 .personalInfo div {
     display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
     justify-content: space-between;
-    gap: 10px;
 }
 
 .personalInfo div span {
     color: #aaabb0;
     letter-spacing: 1px;
+    word-break: break-word; /* Prevents text from overflowing */
+    overflow-wrap: break-word;
 }
+
 
 /* Button */
 .infosection button {
