@@ -150,8 +150,16 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 30px 80px;
-    grid-template-areas: 'skill1 skill2'
-                         'skill3 skill4';
+    grid-template-areas: 
+        'skill1 skill2' 
+        'skill3 skill4';
+}
+
+/* Individual Skill Items */
+.skillsection .skill-item {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }
 
 .skillsection .subject {
@@ -172,6 +180,8 @@ body {
     border-top: 1px solid #000;
     border-bottom: 1px solid #444;
     border-radius: 15px;
+    position: relative;
+    overflow: visible;
 }
 
 .progress_line {
@@ -187,11 +197,12 @@ body {
 .progress_line::after {
     position: absolute;
     content: attr(value);
-    top: -35px;
-    right: 0px;
-    transform: translateX(-50%);
+    top: -25px; /* Moves value above the bar */
+    left: 100%; /* Moves value outside the bar */
+    transform: translateX(10px);
     color: #aaabb0;
-    font-size: 17px;
+    font-size: 16px;
+    white-space: nowrap;
 }
 
 /* Responsive Design */
@@ -205,7 +216,8 @@ body {
     }
 
     .skillsection {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 20px;
     }
 
     .imagesection {
@@ -216,6 +228,22 @@ body {
 @media (max-width: 768px) {
     .about_container {
         padding: 30px 5%;
+    }
+
+    .infosection h1 {
+        font-size: 26px;
+    }
+
+    .infosection h2 {
+        font-size: 18px;
+    }
+
+    .infosection p {
+        font-size: 16px;
+    }
+
+    .personalInfo {
+        grid-template-columns: 1fr;
     }
 
     .skillsection {
@@ -231,6 +259,38 @@ body {
 
     .about_contents {
         grid-gap: 30px;
+    }
+
+    .imagesection {
+        min-width: 250px;
+        height: 320px;
+    }
+
+    .infosection h1 {
+        font-size: 22px;
+    }
+
+    .infosection h2 {
+        font-size: 16px;
+    }
+
+    .infosection p {
+        font-size: 14px;
+    }
+
+    .infosection button {
+        font-size: 16px;
+        padding: 6px 14px;
+    }
+
+    .progress_bar {
+        height: 12px;
+        padding: 3px 5px;
+    }
+
+    .progress_line::after {
+        font-size: 14px;
+        top: -28px;
     }
 
     .skillsection {
