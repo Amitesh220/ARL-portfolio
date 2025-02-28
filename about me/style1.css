@@ -1,10 +1,10 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body{
+body {
     width: 100%;
     min-height: 100vh;
     display: flex;
@@ -13,26 +13,12 @@ body{
     background-color: #2b2a2f;
 }
 
-.about_container{
+.about_container {
     width: 100%;
     padding: 50px 8%;
 }
 
-.imagesection{
-    grid-area: imagesect;
-    /* border: 1px solid white; */
-}
-
-.infosection{
-    grid-area: infosect;
-    /* border: 1px solid red; */
-}
-
-.skillsection{
-    grid-area: skillsect;
-    /* border: 1px solid yellow; */
-}
-.about_container .about_contents{
+.about_contents {
     display: grid;
     grid-template-columns: 2fr 5fr;
     grid-gap: 70px;
@@ -40,13 +26,15 @@ body{
                          'skillsect skillsect';
 }
 
-.about_contents .imagesection{
+/* Image Section */
+.imagesection {
+    grid-area: imagesect;
     position: relative;
     min-width: 300px;
     height: 380px;
 }
 
-.imagesection img{
+.imagesection img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -54,7 +42,7 @@ body{
     z-index: 2;
 }
 
-.about_contents .imagesection::after{
+.imagesection::after {
     position: absolute;
     content: '';
     width: 100%;
@@ -65,17 +53,21 @@ body{
     z-index: 1;
 }
 
-.infosection h1{
+/* Info Section */
+.infosection {
+    grid-area: infosect;
+}
+
+.infosection h1 {
     color: #dedce1;
     font-size: 30px;
-    font-family:Helvetica;
+    font-family: Helvetica;
     text-transform: uppercase;
-    display: inline-block;
     margin-bottom: 5px;
     position: relative;
 }
 
-.infosection h1::before{
+.infosection h1::before {
     content: '';
     position: absolute;
     width: 100%;
@@ -85,7 +77,7 @@ body{
     background-color: #aaabb0;
 }
 
-.infosection h1::after{
+.infosection h1::after {
     content: '';
     position: absolute;
     width: 40%;
@@ -95,7 +87,7 @@ body{
     background-color: #787cb5;
 }
 
-.infosection h2{
+.infosection h2 {
     font-family: Helvetica;
     font-size: 20px;
     font-weight: 600;
@@ -105,7 +97,7 @@ body{
     letter-spacing: 1px;
 }
 
-.infosection p{
+.infosection p {
     color: #aaabb0;
     font-size: 18px;
     line-height: 1.2;
@@ -113,7 +105,8 @@ body{
     padding-bottom: 8px;
 }
 
-.personalInfo{
+/* Personal Info */
+.personalInfo {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 10px 20px;
@@ -122,42 +115,44 @@ body{
     border-bottom: 1px solid #555;
 }
 
-.personalInfo div{
+.personalInfo div {
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
 
-.personalInfo div span{
+.personalInfo div span {
     color: #aaabb0;
     letter-spacing: 1px;
 }
 
-.infosection button{
-   min-width: 150px;
-   padding: 8px 18px;
-   border: 1px solid #787cb5;
-   border-radius: 25px;
-   font-size: 18px;
-   background-color: #2b2a2f;
-   color: #aaabb0;
-   letter-spacing: 1px;
-   cursor: pointer;
-   transition: all 0.4s;
-   margin-top: 20px;
+/* Button */
+.infosection button {
+    min-width: 150px;
+    padding: 8px 18px;
+    border: 1px solid #787cb5;
+    border-radius: 25px;
+    font-size: 18px;
+    background-color: #2b2a2f;
+    color: #aaabb0;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.4s;
+    margin-top: 20px;
 }
 
-.infosection button:hover{
+.infosection button:hover {
     color: #787cb5;
     border-color: #aaabb0;
 }
 
-.skillsection{
+/* Skills Section */
+.skillsection {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 10px 80px;
 }
 
-.skillsection .subject{
+.skillsection .subject {
     font-size: 17px;
     font-weight: thin;
     color: #aaabb0;
@@ -166,7 +161,8 @@ body{
     letter-spacing: 1px;
 }
 
-.progress_bar{
+/* Progress Bar */
+.progress_bar {
     width: 100%;
     height: 16px;
     background-color: #2b2a2f;
@@ -176,17 +172,17 @@ body{
     border-radius: 15px;
 }
 
-.progress_line{
+.progress_line {
     position: relative;
     width: 100%;
     height: 100%;
     background-color: #787cb5;
     box-shadow: -1px -1px 2px #222222,
                 1px 1px 2px #111111;
-    border-radius: 15px;            
+    border-radius: 15px;
 }
 
-.progress_line::after{
+.progress_line::after {
     position: absolute;
     content: attr(value);
     top: -35px;
@@ -194,4 +190,92 @@ body{
     transform: translateX(-50%);
     color: #aaabb0;
     font-size: 17px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .about_contents {
+        grid-template-columns: 1fr;
+        grid-template-areas: 'imagesect'
+                             'infosect'
+                             'skillsect';
+        grid-gap: 40px;
+    }
+
+    .skillsection {
+        grid-template-columns: 1fr;
+    }
+
+    .imagesection {
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .about_container {
+        padding: 30px 5%;
+    }
+
+    .infosection h1 {
+        font-size: 26px;
+    }
+
+    .infosection h2 {
+        font-size: 18px;
+    }
+
+    .infosection p {
+        font-size: 16px;
+    }
+
+    .personalInfo {
+        grid-template-columns: 1fr;
+    }
+
+    .skillsection {
+        grid-template-columns: 1fr;
+        grid-gap: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .about_container {
+        padding: 20px 5%;
+    }
+
+    .about_contents {
+        grid-gap: 30px;
+    }
+
+    .imagesection {
+        min-width: 250px;
+        height: 320px;
+    }
+
+    .infosection h1 {
+        font-size: 22px;
+    }
+
+    .infosection h2 {
+        font-size: 16px;
+    }
+
+    .infosection p {
+        font-size: 14px;
+    }
+
+    .infosection button {
+        font-size: 16px;
+        padding: 6px 14px;
+    }
+
+    .progress_bar {
+        height: 12px;
+        padding: 3px 5px;
+    }
+
+    .progress_line::after {
+        font-size: 14px;
+        top: -28px;
+    }
 }
