@@ -15,23 +15,30 @@ body {
 
 .about_container {
     width: 100%;
-    padding: 50px 8%;
+    max-width: 1400px; /* Covers full screen width on PC */
+    padding: 50px 5%;
 }
 
+/* Main Layout */
 .about_contents {
     display: grid;
-    grid-template-columns: 2fr 5fr;
-    grid-gap: 70px;
-    grid-template-areas: 'imagesect infosect'
-                         'skillsect skillsect';
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 50px;
+    grid-template-areas: 
+        'imagesect infosect'
+        'skillsect skillsect';
+    justify-content: center;
+    align-items: center;
 }
 
 /* Image Section */
 .imagesection {
     grid-area: imagesect;
     position: relative;
-    min-width: 300px;
-    height: 380px;
+    width: 100%;
+    max-width: 400px;
+    height: 400px;
+    margin: 0 auto;
 }
 
 .imagesection img {
@@ -56,51 +63,23 @@ body {
 /* Info Section */
 .infosection {
     grid-area: infosect;
+    text-align: left;
+    width: 100%;
 }
 
 .infosection h1 {
     color: #dedce1;
-    font-size: 30px;
+    font-size: 32px;
     font-family: Helvetica;
     text-transform: uppercase;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     position: relative;
-}
-
-.infosection h1::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 1px;
-    top: 110%;
-    left: 0;
-    background-color: #aaabb0;
-}
-
-.infosection h1::after {
-    content: '';
-    position: absolute;
-    width: 40%;
-    height: 3px;
-    top: calc(110% - 1px);
-    left: 0px;
-    background-color: #787cb5;
-}
-
-.infosection h2 {
-    font-family: Helvetica;
-    font-size: 20px;
-    font-weight: 600;
-    color: #787cb5;
-    padding: 14px 0px 15px;
-    text-transform: capitalize;
-    letter-spacing: 1px;
 }
 
 .infosection p {
     color: #aaabb0;
     font-size: 18px;
-    line-height: 1.2;
+    line-height: 1.5;
     text-align: justify;
     padding-bottom: 8px;
 }
@@ -125,40 +104,17 @@ body {
     letter-spacing: 1px;
 }
 
-/* Button */
-.infosection button {
-    min-width: 150px;
-    padding: 8px 18px;
-    border: 1px solid #787cb5;
-    border-radius: 25px;
-    font-size: 18px;
-    background-color: #2b2a2f;
-    color: #aaabb0;
-    letter-spacing: 1px;
-    cursor: pointer;
-    transition: all 0.4s;
-    margin-top: 20px;
-}
-
-.infosection button:hover {
-    color: #787cb5;
-    border-color: #aaabb0;
-}
-
 /* Skills Section */
 .skillsection {
+    grid-area: skillsect;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 30px 80px;
-    grid-template-areas: 
-        'skill1 skill2' 
-        'skill3 skill4';
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 30px 50px;
+    justify-content: center;
+    width: 100%;
 }
 
-/* Individual Skill Items */
-.skillsection .skill-item {
-    display: flex;
-    flex-direction: column;
+.skill-item {
     width: 100%;
 }
 
@@ -181,7 +137,6 @@ body {
     border-bottom: 1px solid #444;
     border-radius: 15px;
     position: relative;
-    overflow: visible;
 }
 
 .progress_line {
@@ -197,8 +152,8 @@ body {
 .progress_line::after {
     position: absolute;
     content: attr(value);
-    top: -25px; /* Moves value above the bar */
-    left: 100%; /* Moves value outside the bar */
+    top: -25px;
+    left: 100%;
     transform: translateX(10px);
     color: #aaabb0;
     font-size: 16px;
@@ -209,19 +164,21 @@ body {
 @media (max-width: 1024px) {
     .about_contents {
         grid-template-columns: 1fr;
-        grid-template-areas: 'imagesect'
-                             'infosect'
-                             'skillsect';
-        grid-gap: 40px;
-    }
-
-    .skillsection {
-        grid-template-columns: 1fr 1fr;
-        grid-gap: 20px;
+        grid-template-areas: 
+            'imagesect'
+            'infosect'
+            'skillsect';
+        text-align: center;
     }
 
     .imagesection {
-        text-align: center;
+        max-width: 300px;
+        height: 350px;
+        margin: 0 auto;
+    }
+
+    .skillsection {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -231,24 +188,15 @@ body {
     }
 
     .infosection h1 {
-        font-size: 26px;
-    }
-
-    .infosection h2 {
-        font-size: 18px;
+        font-size: 28px;
     }
 
     .infosection p {
         font-size: 16px;
     }
 
-    .personalInfo {
-        grid-template-columns: 1fr;
-    }
-
     .skillsection {
         grid-template-columns: 1fr;
-        grid-gap: 20px;
     }
 }
 
@@ -258,39 +206,23 @@ body {
     }
 
     .about_contents {
+        grid-template-columns: 1fr;
+        text-align: center;
         grid-gap: 30px;
     }
 
     .imagesection {
         min-width: 250px;
         height: 320px;
+        margin: 0 auto;
     }
 
     .infosection h1 {
-        font-size: 22px;
-    }
-
-    .infosection h2 {
-        font-size: 16px;
+        font-size: 24px;
     }
 
     .infosection p {
         font-size: 14px;
-    }
-
-    .infosection button {
-        font-size: 16px;
-        padding: 6px 14px;
-    }
-
-    .progress_bar {
-        height: 12px;
-        padding: 3px 5px;
-    }
-
-    .progress_line::after {
-        font-size: 14px;
-        top: -28px;
     }
 
     .skillsection {
