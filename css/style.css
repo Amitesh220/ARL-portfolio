@@ -148,6 +148,7 @@ span {
 }
 
 /* About */
+/* About */
 .about {
   display: flex;
   justify-content: center;
@@ -183,11 +184,21 @@ span {
   letter-spacing: 2px;
 }
 
+/* Initial hidden state for animation */
+.about-img,
+.about-content {
+  opacity: 0;
+  transform: translateX(-100px);
+  transition: all 1s ease;
+}
+
+/* Slide-in animation */
 .about-img.slide-in,
 .about-content.slide-in {
   opacity: 1;
   transform: translateX(0);
 }
+
 
 /* Services */
 .services h2 {
