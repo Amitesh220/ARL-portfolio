@@ -614,28 +614,31 @@ span {
 }
 
 .timeline-content {
-    background: white;
+    background: var(--second-bg-colour); /* instead of white */
     padding: 1.5rem;
     border-radius: 10px;
     position: relative;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: var(--text-colour); /* make text visible on dark bg */
 }
 
 .timeline-content h3 {
     font-size: 1.3rem;
     margin-bottom: 0.5rem;
+    color: var(--main-colour); /* use main accent color for headings */
 }
 
 .timeline-content span {
     font-weight: bold;
-    color: #7a00cc;
+    color: var(--main-colour); /* replace #7a00cc with your main color */
 }
 
 .timeline-date {
     display: block;
     margin-top: 0.5rem;
     font-size: 0.9rem;
-    color: #555;
+    color: var(--text-colour); /* lighter color for date */
+    opacity: 0.7; /* subtle but visible */
 }
 
 .timeline-item::before {
@@ -644,7 +647,7 @@ span {
     top: 20px;
     width: 20px;
     height: 20px;
-    background: #7a00cc;
+    background: var(--main-colour); /* replace #7a00cc */
     border-radius: 50%;
     z-index: 1;
     left: -10px;
@@ -653,27 +656,4 @@ span {
 .timeline-item.right::before {
     left: auto;
     right: -10px;
-}
-
-@media (max-width: 768px) {
-    .timeline-item,
-    .timeline-item.right,
-    .timeline-item.left {
-        left: 0 !important;
-        width: 100%;
-        padding-left: 2rem;
-        padding-right: 2rem;
-    }
-
-    .timeline-container::after {
-        left: 30px;
-    }
-
-    .timeline-item::before {
-        left: 15px;
-    }
-
-    .timeline-item.right::before {
-        right: auto;
-    }
 }
